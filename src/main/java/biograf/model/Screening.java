@@ -15,7 +15,7 @@ public class Screening {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @ManyToOne
-    @JoinColumn(name = "movie", referencedColumnName = "title")
+    @JoinColumn(name = "movie", referencedColumnName = "id")
     private Movie movie;
     @ManyToOne
     @JoinColumn(name = "theater", referencedColumnName = "id")
@@ -25,7 +25,7 @@ public class Screening {
 
     //TODO there is some logic regarding a list that is not working.
 
-    @OneToMany(mappedBy = "screening", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "screening") //, cascade = CascadeType.ALL, orphanRemoval = true
     private List<Seat> seatList;
 
     public Screening(Movie movie, Theater theater, LocalDate date, LocalTime startTime){

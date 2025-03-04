@@ -15,7 +15,9 @@ public class Theater {
     private int rows;
     private int seatsPerRow;
 
-    @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL, orphanRemoval = true)
+
+    //TODO this does not make sense and does not work...
+    @OneToMany(mappedBy = "theater") //cascade = CascadeType.ALL, orphanRemoval = true
     private List<SeatTemplate> seatTemplateList;
 
     public Theater (String name, int rows, int seatsPerRow){

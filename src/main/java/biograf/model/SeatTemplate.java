@@ -12,8 +12,9 @@ public class SeatTemplate {
     private int id;
     private int rowNR;
     private int seatNR;
+
     @ManyToOne
-    @JoinColumn(name = "theater", referencedColumnName = "name")
+    @JoinColumn(name = "theater", referencedColumnName = "id")
     private Theater theater;
 
     public SeatTemplate(int rowNR, int seatNR){
