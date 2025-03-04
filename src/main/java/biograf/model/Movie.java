@@ -3,6 +3,8 @@ package biograf.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Movie {
 
@@ -14,8 +16,8 @@ public class Movie {
     private int duration;
     private String genre;
 
-
-
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+    private List<ShowTime> showTimes;
 
     public Movie(String title, int duration, String genre, int ageLimited){
         this.title = title;
@@ -58,7 +60,11 @@ public class Movie {
     }
 
 
+    public List<ShowTime> getShowTimes() {
+        return showTimes;
+    }
 
-
-
+    public void setShowTimes(List<ShowTime> showTimes) {
+        this.showTimes = showTimes;
+    }
 }
