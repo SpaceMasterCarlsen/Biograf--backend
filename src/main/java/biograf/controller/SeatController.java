@@ -1,9 +1,12 @@
 package biograf.controller;
 
+import biograf.model.Movie;
+import biograf.model.Seat;
 import biograf.service.SeatService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/seat")
@@ -15,4 +18,18 @@ public class SeatController {
     public SeatController(SeatService seatService) {
         this.seatService = seatService;
     }
+
+    @GetMapping("")
+    public ResponseEntity<List<Seat>> getAllSeats() {
+        List<Seat> seats = seatService.getAllSeats();
+        return ResponseEntity.ok(seats);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Seat> getSeatById(@PathVariable int id) {
+        return seatService.getSeatById(id)
+                .map(seat -> ResponseEntity.ok().body(seat))
+                .orElse(ResponseEntity.notFound().build());
+    }
+
 }
