@@ -2,6 +2,8 @@ package biograf.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -10,30 +12,27 @@ public class Theater {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int theaterID;
     private String name;
     private int rows;
-    private int seatsPerRow;
+
+    @Transient
+    private Character[] seatsPerRow = {'A', 'B', 'C', 'D', 'E'};
 
 
-    //TODO this does not make sense and does not work...
-    @OneToMany(mappedBy = "theater") //cascade = CascadeType.ALL, orphanRemoval = true
-    private List<SeatTemplate> seatTemplateList;
-
-    public Theater (String name, int rows, int seatsPerRow){
+    public Theater (String name, int rows){
         this.name = name;
         this.rows = rows;
-        this.seatsPerRow = seatsPerRow;
     }
 
     public Theater() {}
 
-    public int getId() {
-        return id;
+    public int getTheaterID() {
+        return theaterID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setTheaterID(int id) {
+        this.theaterID = id;
     }
 
     public String getName() {
@@ -52,20 +51,14 @@ public class Theater {
         this.rows = rows;
     }
 
-    public int getSeatsPerRow() {
+    public Character[] getSeatsPerRow() {
         return seatsPerRow;
     }
 
-    public void setSeatsPerRow(int seatsPerRow) {
+    public void setSeatsPerRow(Character[] seatsPerRow) {
         this.seatsPerRow = seatsPerRow;
     }
 
-    public List<SeatTemplate> getSeatTemplateList() {
-        return seatTemplateList;
-    }
 
-    public void setSeatTemplateList(List<SeatTemplate> seatTemplateList) {
-        this.seatTemplateList = seatTemplateList;
-    }
 
 }

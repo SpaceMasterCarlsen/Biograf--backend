@@ -1,10 +1,7 @@
 package biograf.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Movie {
@@ -12,28 +9,28 @@ public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int movieID;
     private String title;
     private int duration;
     private String genre;
-    private int ageLimited;
+
+
 
 
     public Movie(String title, int duration, String genre, int ageLimited){
         this.title = title;
         this.duration = duration;
         this.genre = genre;
-        this.ageLimited = ageLimited;
     }
 
     public Movie() {}
 
-    public int getId() {
-        return id;
+    public int getMovieID() {
+        return movieID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setMovieID(int id) {
+        this.movieID = id;
     }
 
     public String getTitle() {
@@ -60,13 +57,7 @@ public class Movie {
         this.genre = genre;
     }
 
-    public int getAgeLimited() {
-        return ageLimited;
-    }
 
-    public void setAgeLimited(int ageLimited) {
-        this.ageLimited = ageLimited;
-    }
 
 
 

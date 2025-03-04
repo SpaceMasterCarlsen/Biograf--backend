@@ -8,39 +8,47 @@ public class Seat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int seatID;
+
+
     @ManyToOne
-    @JoinColumn(name = "screening", referencedColumnName = "id")
-    private Screening screening;
-    @ManyToOne
-    @JoinColumn(name = "seatTemplate", referencedColumnName = "id")
-    private SeatTemplate seatTemplate;
+    @JoinColumn(name = "showTimeFKID", referencedColumnName = "showTimeID")
+    private ShowTime showTime;
+
+    private String seatNameID;
     private boolean isBooked;
+
+    public Seat( String seatNameID) { //ShowTime showTimeID
+        //this.showTimeID = showTimeID;
+        this.seatNameID = seatNameID;
+        this.isBooked = false;
+    }
+
 
     public Seat(){}
 
-    public int getId() {
-        return id;
+    public int getSeatID() {
+        return seatID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setSeatID(int seatID) {
+        this.seatID = seatID;
     }
 
-    public Screening getScreening() {
-        return screening;
+    public ShowTime getShowTime() {
+        return showTime;
     }
 
-    public void setScreening(Screening screening) {
-        this.screening = screening;
+    public void setShowTime(ShowTime showTime) {
+        this.showTime = showTime;
     }
 
-    public SeatTemplate getSeatTemplate() {
-        return seatTemplate;
+    public String getSeatNameID() {
+        return seatNameID;
     }
 
-    public void setSeatTemplate(SeatTemplate seatTemplate) {
-        this.seatTemplate = seatTemplate;
+    public void setSeatNameID(String seatNameID) {
+        this.seatNameID = seatNameID;
     }
 
     public boolean isBooked() {
