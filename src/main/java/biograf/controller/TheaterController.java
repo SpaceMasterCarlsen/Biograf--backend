@@ -41,7 +41,7 @@ public class TheaterController {
     }
 
     //To be tested
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{theaterId}")
     public ResponseEntity<Void> deleteTheater(@PathVariable int theaterId) {
         theaterService.deleteTheater(theaterId);
         return ResponseEntity.noContent().build();
