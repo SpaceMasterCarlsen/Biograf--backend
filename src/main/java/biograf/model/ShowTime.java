@@ -80,7 +80,7 @@ public class ShowTime {
     public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
     }
-
+    //keeping this here if needing to refactor later
     public List<Seat> populateSeatsList() {
         List<Seat> results = new ArrayList<>();
 

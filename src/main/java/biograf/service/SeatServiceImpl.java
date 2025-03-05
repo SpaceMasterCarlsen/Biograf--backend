@@ -39,10 +39,9 @@ public class SeatServiceImpl implements SeatService {
     public void deleteSeat(int id) {
         seatRepository.deleteById(id);
     }
-
+    //TODO either make this modular or refactor back to showtime populating the seatlist
     @Override
     public List<Seat> generateSeatsForShowTime(ShowTime showTime) {
-        // Check if seats already exist in the database for this ShowTime
         List<Seat> existingSeats = seatRepository.findByShowTime_ShowTimeIDAndIsBookedTrue(showTime.getShowTimeID());
 
         if (!existingSeats.isEmpty()) {
@@ -52,6 +51,7 @@ public class SeatServiceImpl implements SeatService {
         // Row and colum structur
         char[] rows = {'A', 'B', 'C', 'D', 'E'}; // 5 Rows (can also be changed to be infite scaleable)
         int cols = 10; // Can be change to suit needs or be made scalable
+
 
         List<Seat> newSeats = new ArrayList<>();
 
@@ -67,6 +67,7 @@ public class SeatServiceImpl implements SeatService {
 
         return seatRepository.saveAll(newSeats); // Persist new seats in DB
     }
+
 
 
     @Override
