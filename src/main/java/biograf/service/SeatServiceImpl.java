@@ -14,11 +14,10 @@ import java.util.Optional;
 public class SeatServiceImpl implements SeatService {
 
     private final SeatRepository seatRepository;
-    private final ShowTimeRepository showTimeRepository;
 
-    public SeatServiceImpl(SeatRepository seatRepository, ShowTimeRepository showTimeRepository) {
+
+    public SeatServiceImpl(SeatRepository seatRepository) {
         this.seatRepository = seatRepository;
-        this.showTimeRepository = showTimeRepository;
     }
 
     @Override
