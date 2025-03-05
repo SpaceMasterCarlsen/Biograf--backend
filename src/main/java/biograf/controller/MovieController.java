@@ -29,7 +29,7 @@ public class MovieController {
     public ResponseEntity<Movie> getMovieById(@PathVariable int id){
         return movieService.getMovieById(id)
                 .map(movie -> ResponseEntity.ok().body(movie)) //this is http 200 OK
-                .orElseGet(()-> ResponseEntity.notFound().build()); //this is http 404 Not Found
+                .orElseGet(()-> ResponseEntity.notFound().build()); //this is http 404 Not Found - might be better to  return a json error message for frontend
 
     }
 

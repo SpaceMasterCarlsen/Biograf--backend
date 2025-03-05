@@ -1,6 +1,7 @@
 package biograf.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class Movie {
     private String genre;
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<ShowTime> showTimes;
 
     public Movie(String title, int duration, String genre, int ageLimited){

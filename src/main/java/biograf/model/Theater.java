@@ -31,8 +31,8 @@ public class Theater {
         return theaterID;
     }
 
-    public void setTheaterID(int id) {
-        this.theaterID = id;
+    public void setTheaterID(int theaterID) {
+        this.theaterID = theaterID;
     }
 
     public String getName() {
