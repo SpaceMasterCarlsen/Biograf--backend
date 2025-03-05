@@ -1,5 +1,6 @@
 package biograf.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -28,6 +29,7 @@ public class ShowTime {
 
 
     //TODO there is some logic regarding a list that is not working.
+    @JsonManagedReference
     @OneToMany(mappedBy = "showTime", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Seat> seatList;
 

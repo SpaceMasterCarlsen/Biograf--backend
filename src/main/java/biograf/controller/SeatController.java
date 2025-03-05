@@ -32,4 +32,23 @@ public class SeatController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+
+    @GetMapping("/available-seats/{showTimeID}")
+    public ResponseEntity<List<Seat>> getAvailableSeats(@PathVariable int showTimeID) {
+        List<Seat> availableSeats = seatService.getAvailableSeatsForShowTime(showTimeID);
+        return ResponseEntity.ok(availableSeats);
+    }
+
+    @GetMapping("/bookedseats/{showTimeID}")
+    public ResponseEntity<List<Seat>> getBookedSeats(@PathVariable int showTimeID) {
+        List<Seat> bookedSeats = seatService.getBookedSeatsForShowTime(showTimeID);
+        return ResponseEntity.ok(bookedSeats);
+    }
+
+    @GetMapping("/allSeats/{showTimeID}")
+    public ResponseEntity<List<Seat>> getAllSeats(@PathVariable int showTimeID) {
+        List<Seat> allSeats = seatService.getAllSeatsForShowTime(showTimeID);
+        return ResponseEntity.ok(allSeats);
+    }
+
 }

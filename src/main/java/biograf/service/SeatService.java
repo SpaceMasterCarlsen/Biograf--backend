@@ -32,4 +32,15 @@ public class SeatService {
     public void deleteSeat(int id) {
         seatRepository.deleteById(id);
     }
+
+    public List<Seat> getAvailableSeatsForShowTime(int showTimeID) {
+        return seatRepository.findByShowTime_ShowTimeIDAndIsBookedFalse(showTimeID);
+    }
+
+    public List<Seat> getBookedSeatsForShowTime(int showTimeID) {
+        return seatRepository.findByShowTime_ShowTimeIDAndIsBookedTrue(showTimeID);
+    }
+    public List<Seat> getAllSeatsForShowTime(int showTimeID) {
+        return seatRepository.findByShowTime_ShowTimeID(showTimeID);
+    }
 }
