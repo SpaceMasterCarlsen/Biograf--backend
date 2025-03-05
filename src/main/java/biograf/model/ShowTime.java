@@ -27,17 +27,11 @@ public class ShowTime {
     private LocalTime startTime;
 
 
-    //TODO there is some logic regarding a list that is not working.
-    @OneToMany(mappedBy = "showTime", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Seat> seatList;
-
-
     public ShowTime(Movie movie, Theater theater, LocalDate date, LocalTime startTime){
         this.movie = movie;
         this.theater = theater;
         this.date = date;
         this.startTime = startTime;
-        this.seatList = this.populateSeatsList();
     }
 
     public ShowTime() {}
@@ -46,7 +40,7 @@ public class ShowTime {
         return showTimeID;
     }
 
-    public void setId(int showTimeID) {
+    public void setShowTimeID(int showTimeID) {
         this.showTimeID = showTimeID;
     }
 
@@ -80,14 +74,6 @@ public class ShowTime {
 
     public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
-    }
-
-    public List<Seat> getSeatList() {
-        return seatList;
-    }
-
-    public void setSeatList(List<Seat> seatList) {
-        this.seatList = seatList;
     }
 
     public List<Seat> populateSeatsList() {
