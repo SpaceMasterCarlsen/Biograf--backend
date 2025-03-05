@@ -67,12 +67,13 @@ public class InitData implements CommandLineRunner {
         seatService.generateSeatsForShowTime(forestilling2);
         seatService.generateSeatsForShowTime(forestilling3);
 
-
         seatService.bookSeat(1);
-        seatService.bookSeat(1);
-
         seatService.bookSeat(2);
         seatService.bookSeat(3);
+
+        seatService.getBookedSeatsForShowTime(1);
+        seatService.getBookedSeatsForShowTime(2);
+        seatService.getBookedSeatsForShowTime(3);
 
 
     }
