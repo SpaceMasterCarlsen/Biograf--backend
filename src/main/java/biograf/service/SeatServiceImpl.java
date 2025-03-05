@@ -85,5 +85,10 @@ public class SeatServiceImpl implements SeatService {
                 .filter(seat -> seat.getShowTime().getShowTimeID() == showTimeID && seat.isBooked())
                 .toList();
     }
+
+    @Override
+    public List<Seat> getAllSeatsForShowTime(int showTimeID) {
+        return seatRepository.findByShowTime_ShowTimeID(showTimeID);
+    }
 }
 

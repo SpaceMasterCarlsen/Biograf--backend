@@ -15,5 +15,5 @@ public interface SeatService {
     List<Seat> generateSeatsForShowTime(ShowTime showTime);
     void bookSeat(int seatID);
     List<Seat> getBookedSeatsForShowTime(int showTimeID);
-
+    List<Seat> getAllSeatsForShowTime(int showTimeID);
 }

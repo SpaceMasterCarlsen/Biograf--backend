@@ -25,7 +25,7 @@ public class SeatController {
         return ResponseEntity.ok(seats);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{seatID}")
     public ResponseEntity<Seat> getSeatById(@PathVariable int seatID) {
         return seatService.getSeatById(seatID)
                 .map(seat -> ResponseEntity.ok().body(seat))
@@ -61,9 +61,4 @@ public class SeatController {
         return ResponseEntity.ok(allSeats);
     }
 
-    @GetMapping("/available-seats/{showTimeID}")
-    public ResponseEntity<List<Seat>> getAvailableSeats(@PathVariable int showTimeID) {
-        List<Seat> availableSeats = seatService.getAvailableSeatsForShowTime(showTimeID);
-        return ResponseEntity.ok(availableSeats);
-    }
 }
