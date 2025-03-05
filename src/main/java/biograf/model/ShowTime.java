@@ -1,12 +1,12 @@
 package biograf.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-
 
 @Entity
 public class ShowTime {
@@ -26,6 +26,17 @@ public class ShowTime {
     private LocalDate date;
     private LocalTime startTime;
 
+    public List<Seat> getSeats() {
+        return seats;
+    }
+
+    public void setSeats(List<Seat> seats) {
+        this.seats = seats;
+    }
+
+    @OneToMany(mappedBy = "showTime", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Seat> seats = new ArrayList<>();
 
     public ShowTime(Movie movie, Theater theater, LocalDate date, LocalTime startTime){
         this.movie = movie;

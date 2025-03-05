@@ -14,7 +14,7 @@ import java.util.Optional;
 public class SeatServiceImpl implements SeatService {
 
     private final SeatRepository seatRepository;
-    private final ShowTimeRepository showTimeRepository; // Add ShowTimeRepository
+    private final ShowTimeRepository showTimeRepository;
 
     public SeatServiceImpl(SeatRepository seatRepository, ShowTimeRepository showTimeRepository) {
         this.seatRepository = seatRepository;
@@ -69,7 +69,6 @@ public class SeatServiceImpl implements SeatService {
         return seatRepository.saveAll(newSeats); // Persist new seats in DB
     }
 
-
     @Override
     public void bookSeat(int seatID) {
         Optional<Seat> seat = seatRepository.findById(seatID);
@@ -85,5 +84,9 @@ public class SeatServiceImpl implements SeatService {
                 .filter(seat -> seat.getShowTime().getShowTimeID() == showTimeID && seat.isBooked())
                 .toList();
     }
+
+
+
+
 }
 
