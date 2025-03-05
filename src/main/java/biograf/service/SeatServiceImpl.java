@@ -14,7 +14,7 @@ import java.util.Optional;
 public class SeatServiceImpl implements SeatService {
 
     private final SeatRepository seatRepository;
-    private final ShowTimeRepository showTimeRepository; // Add ShowTimeRepository
+    private final ShowTimeRepository showTimeRepository;
 
     public SeatServiceImpl(SeatRepository seatRepository, ShowTimeRepository showTimeRepository) {
         this.seatRepository = seatRepository;
