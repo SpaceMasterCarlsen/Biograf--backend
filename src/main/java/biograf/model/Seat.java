@@ -1,6 +1,7 @@
 package biograf.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,7 +11,7 @@ public class Seat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int seatID;
 
-
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "showTimeFKID", referencedColumnName = "showTimeID")
     private ShowTime showTime;

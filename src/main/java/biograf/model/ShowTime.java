@@ -1,5 +1,6 @@
 package biograf.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -26,10 +27,9 @@ public class ShowTime {
     private LocalDate date;
     private LocalTime startTime;
 
-
-    //TODO there is some logic regarding a list that is not working.
     @OneToMany(mappedBy = "showTime", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Seat> seatList;
+    @JsonIgnore
+    private List<Seat> seats = new ArrayList<>();
 
 
     public ShowTime(Movie movie, Theater theater, LocalDate date, LocalTime startTime){
@@ -37,7 +37,6 @@ public class ShowTime {
         this.theater = theater;
         this.date = date;
         this.startTime = startTime;
-        this.seatList = this.populateSeatsList();
     }
 
     public ShowTime() {}
@@ -46,7 +45,7 @@ public class ShowTime {
         return showTimeID;
     }
 
-    public void setId(int showTimeID) {
+    public void setShowTimeID(int showTimeID) {
         this.showTimeID = showTimeID;
     }
 
@@ -81,15 +80,7 @@ public class ShowTime {
     public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
     }
-
-    public List<Seat> getSeatList() {
-        return seatList;
-    }
-
-    public void setSeatList(List<Seat> seatList) {
-        this.seatList = seatList;
-    }
-
+    //keeping this here if needing to refactor later
     public List<Seat> populateSeatsList() {
         List<Seat> results = new ArrayList<>();
 
@@ -112,4 +103,11 @@ public class ShowTime {
         return results;
     }
 
+    public List<Seat> getSeats() {
+        return seats;
+    }
+
+    public void setSeats(List<Seat> seats) {
+        this.seats = seats;
+    }
 }
