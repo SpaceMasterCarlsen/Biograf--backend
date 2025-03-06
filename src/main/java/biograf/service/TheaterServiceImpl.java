@@ -13,6 +13,8 @@ public class TheaterServiceImpl implements TheaterService {
 
     private final TheaterRepository theaterRepository;
 
+
+    //Does this make sense to use autowire in the constructore ? 
     @Autowired
     public TheaterServiceImpl(TheaterRepository theaterRepository) {
         this.theaterRepository = theaterRepository;
