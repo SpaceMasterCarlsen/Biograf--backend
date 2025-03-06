@@ -62,6 +62,10 @@ public class InitData implements CommandLineRunner {
         showtime.save(forestilling2);
         showtime.save(forestilling3);
 
+        //TODO Oskar comments below 
+        // Whyt the hell is there test in our initData ? this should be under unit test ?
+        // Is this because it is how you now generate data in out database. Because it have to go throught controller class / service layer.
+
         // Generating test seats to see if the logic works as intended
         seatService.generateSeatsForShowTime(forestilling1);
         seatService.generateSeatsForShowTime(forestilling2);
