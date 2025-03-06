@@ -20,6 +20,9 @@ public class Theater {
     @Transient
     private Character[] seatsPerRow = {'A', 'B', 'C', 'D', 'E'};
 
+    //TODO Oskar comments
+    // thanks for below comments makes sense when you write your logic below.
+    
     @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL, orphanRemoval = true) //need this relation to be able to delete a theater and its showtimes
     @JsonIgnore
     private List<ShowTime> showTimes = new ArrayList<>();
