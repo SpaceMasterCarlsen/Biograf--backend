@@ -40,6 +40,8 @@ public class SeatServiceImpl implements SeatService {
         seatRepository.deleteById(id);
     }
     //TODO either make this modular or refactor back to showtime populating the seatlist
+    // TODO Oskar comment: this make non-sense whatsoever. There was a totally fin methid in Showtime, there used the data in our theater object
+    // To automatic generate seats, Now it is hardcoded in an method below. This should re refactored back. 
     @Override
     public List<Seat> generateSeatsForShowTime(ShowTime showTime) {
         List<Seat> existingSeats = seatRepository.findByShowTime_ShowTimeIDAndIsBookedTrue(showTime.getShowTimeID());
