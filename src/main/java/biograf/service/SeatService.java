@@ -14,6 +14,8 @@ public interface SeatService {
 
 
     void bookSeat(int seatID);
+    void unBookSeat(int seatID);
     List<Seat> getBookedSeatsForShowTime(int showTimeID);
     List<Seat> getAllSeatsForShowTime(int showTimeID);
+
 }

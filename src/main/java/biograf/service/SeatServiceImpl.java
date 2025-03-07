@@ -50,6 +50,15 @@ public class SeatServiceImpl implements SeatService {
     }
 
     @Override
+    public void unBookSeat(int seatID) {
+        Optional<Seat> seat = seatRepository.findById(seatID);
+        seat.ifPresent(s -> {
+            s.setBooked(false);
+            seatRepository.save(s);
+        });
+    }
+
+    @Override
     public List<Seat> getBookedSeatsForShowTime(int showTimeID) {
         return seatRepository.findAll().stream()
                 .filter(seat -> seat.getShowTime().getShowTimeID() == showTimeID && seat.isBooked())
