@@ -41,7 +41,7 @@ public class SeatController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/bookseat/{seatID}")
+    @PostMapping("/unbookseat/{seatID}")
     public ResponseEntity<Void> unBookSeat(@PathVariable int seatID) {
         seatService.unBookSeat(seatID);
         return ResponseEntity.ok().build();
