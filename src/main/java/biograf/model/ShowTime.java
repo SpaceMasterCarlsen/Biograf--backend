@@ -29,7 +29,7 @@ public class ShowTime {
 
     @OneToMany(mappedBy = "showTime", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<Seat> seats = new ArrayList<>();
+    private List<Seat> seats;
 
 
     public ShowTime(Movie movie, Theater theater, LocalDate date, LocalTime startTime){
