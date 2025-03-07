@@ -67,5 +67,11 @@ public class Theater {
     }
 
 
+    public List<ShowTime> getShowTimes() {
+        return showTimes;
+    }
 
+    public void setShowTimes(List<ShowTime> showTimes) {
+        this.showTimes = showTimes;
+    }
 }
