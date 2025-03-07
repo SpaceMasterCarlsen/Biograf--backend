@@ -94,7 +94,7 @@ public class ShowTime {
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < array.length; j++) {
-                String seatName = i + "" + array[j];
+                String seatName = "" + array[j] + i;
                 Seat obj = new Seat(seatName);
                 obj.setShowTime(this); // Associate seat with this ShowTime
                 results.add(obj);
