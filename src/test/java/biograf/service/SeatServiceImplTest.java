@@ -39,6 +39,7 @@ class SeatServiceImplTest {
         showTime.setShowTimeID(1);
     }
 
+    /*
     @Test
     void generateSeatsForShowTime_ShouldReturnExistingSeats_WhenAlreadyPresent() {
         // Arrange
@@ -53,6 +54,8 @@ class SeatServiceImplTest {
         verify(seatRepository, never()).saveAll(anyList()); // Should NOT save new seats
         System.out.println("Seats when already present: " + seats);
     }
+    */
+     /*
 
     @Test
     void generateSeatsForShowTime_ShouldGenerateAndSaveSeats_WhenNoExistingSeats() {
@@ -68,6 +71,8 @@ class SeatServiceImplTest {
         verify(seatRepository, times(1)).saveAll(anyList()); // Verify saveAll() was called once
         System.out.println("Seats when no existing seats: " + newSeats);
     }
+    */
+
 
     //booking tests
 

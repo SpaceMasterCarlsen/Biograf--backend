@@ -32,15 +32,7 @@ public class SeatController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-//TO be tested
-    @PostMapping("/generateseats/{showTimeID}")
-    public ResponseEntity<List<Seat>> generateSeatsForShowTime(@PathVariable int showTimeID) {
-        ShowTime showTime = new ShowTime();
-        showTime.setShowTimeID(showTimeID);
 
-        List<Seat> generatedSeats = seatService.generateSeatsForShowTime(showTime);
-        return ResponseEntity.ok(generatedSeats);
-    }
 
     //TO be tested
     @PostMapping("/bookseat/{seatID}")

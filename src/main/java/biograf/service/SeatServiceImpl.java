@@ -39,38 +39,6 @@ public class SeatServiceImpl implements SeatService {
     public void deleteSeat(int id) {
         seatRepository.deleteById(id);
     }
-    //TODO either make this modular or refactor back to showtime populating the seatlist
-    // TODO Oskar comment: this make non-sense whatsoever. There was a totally fin methid in Showtime, there used the data in our theater object
-    // To automatic generate seats, Now it is hardcoded in an method below. This should re refactored back. 
-    @Override
-    public List<Seat> generateSeatsForShowTime(ShowTime showTime) {
-        List<Seat> existingSeats = seatRepository.findByShowTime_ShowTimeIDAndIsBookedTrue(showTime.getShowTimeID());
-
-        if (!existingSeats.isEmpty()) {
-            return existingSeats; // Return existing seats if found
-        }
-
-        // Row and colum structur
-        char[] rows = {'A', 'B', 'C', 'D', 'E'}; // 5 Rows (can also be changed to be infite scaleable)
-        int cols = 10; // Can be change to suit needs or be made scalable
-
-
-        List<Seat> newSeats = new ArrayList<>();
-
-        for (char row : rows) {
-            for (int col = 1; col <= cols; col++) {
-                String seatName = row + String.valueOf(col); // Example: "A1", "B2"
-                Seat seat = new Seat(seatName);
-                seat.setShowTime(showTime);
-                seat.setBooked(false);
-                newSeats.add(seat);
-            }
-        }
-
-        return seatRepository.saveAll(newSeats); // Persist new seats in DB
-    }
-
-
 
     @Override
     public void bookSeat(int seatID) {

@@ -37,6 +37,7 @@ public class ShowTime {
         this.theater = theater;
         this.date = date;
         this.startTime = startTime;
+        populateSeatsList();
     }
 
     public ShowTime() {}
