@@ -8,6 +8,7 @@ import biograf.service.ShowTimeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -38,6 +39,14 @@ public class ShowTimeController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/date/{date}")
+    public ResponseEntity<List<ShowTime>> getShowTimesByDate(@PathVariable LocalDate date) {
+        List<ShowTime> showTimes = showTimeService.findByDate(date);
+        return ResponseEntity.ok(showTimes);
+    }
+
+
+
     @PostMapping("/create")
     public ResponseEntity<ShowTime> createShowTime(@RequestBody ShowTime showTime) {
         ShowTime savedShowTime = showTimeService.saveShowTime(showTime);
@@ -53,6 +62,8 @@ public class ShowTimeController {
                 })
                 .orElseGet(()-> ResponseEntity.status(404).body(Map.of("error", "Showtime not found")));
     }
+
+
 
 
 }
