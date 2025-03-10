@@ -53,14 +53,17 @@ public class InitData implements CommandLineRunner {
         // Generating showtimes
         LocalDate date = LocalDate.of(2024, 3, 3);
         LocalTime time = LocalTime.of(1, 44);
+        LocalDate date2 = LocalDate.of(2025, 3, 12);
 
         ShowTime forestilling1 = new ShowTime(obj, theater2, date, time);
         ShowTime forestilling2 = new ShowTime(obj, theater1, date, time);
         ShowTime forestilling3 = new ShowTime(obj2, theater2, date, time);
+        ShowTime forestilling4 = new ShowTime(obj2, theater2, date2, time);
 
         showtime.save(forestilling1);
         showtime.save(forestilling2);
         showtime.save(forestilling3);
+        showtime.save(forestilling4);
 
 
         seatService.bookSeat(1);

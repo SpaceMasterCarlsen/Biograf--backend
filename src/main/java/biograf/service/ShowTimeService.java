@@ -4,6 +4,7 @@ import biograf.model.ShowTime;
 import biograf.repositories.ShowTimeRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,5 +31,9 @@ public class ShowTimeService {
 
     public void deleteShowTime(int id) {
         showTimeRepository.deleteById(id);
+    }
+
+    public List<ShowTime> findByDate(LocalDate date) {
+        return showTimeRepository.findByDate(date);
     }
 }
