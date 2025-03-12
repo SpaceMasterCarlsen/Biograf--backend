@@ -41,12 +41,14 @@ public class SeatServiceImpl implements SeatService {
     }
 
     @Override
-    public void bookSeat(int seatID) {
-        Optional<Seat> seat = seatRepository.findById(seatID);
-        seat.ifPresent(s -> {
-            s.setBooked(true);
-            seatRepository.save(s);
-        });
+    public void bookSeat(List<Integer> seatID) {
+        List<Seat> seats = seatRepository.findAllById(seatID);
+        for (Seat s : seats) {
+            if (!s.isBooked()) {
+                s.setBooked(true);
+            }
+            seatRepository.saveAll(seats);
+        }
     }
 
     @Override

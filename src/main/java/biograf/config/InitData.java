@@ -65,11 +65,11 @@ public class InitData implements CommandLineRunner {
         showtime.save(forestilling3);
         showtime.save(forestilling4);
 
-
+        /*
         seatService.bookSeat(1);
         seatService.bookSeat(2);
         seatService.bookSeat(3);
-
+        */
         seatService.getBookedSeatsForShowTime(1);
         seatService.getBookedSeatsForShowTime(2);
         seatService.getBookedSeatsForShowTime(3);

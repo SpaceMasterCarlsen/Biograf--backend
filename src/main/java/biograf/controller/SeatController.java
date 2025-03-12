@@ -35,8 +35,8 @@ public class SeatController {
 
 
     //TO be tested
-    @PostMapping("/bookseat/{seatID}")
-    public ResponseEntity<Void> bookSeat(@PathVariable int seatID) {
+    @PostMapping("/bookseat")
+    public ResponseEntity<Void> bookSeat(@RequestBody List<Integer> seatID) {
         seatService.bookSeat(seatID);
         return ResponseEntity.ok().build();
     }
