@@ -13,7 +13,7 @@ public interface SeatService {
     void deleteSeat(int id);
 
 
-    void bookSeat(int seatID);
+    void bookSeat(List<Integer> seatID);
     void unBookSeat(int seatID);
     List<Seat> getBookedSeatsForShowTime(int showTimeID);
     List<Seat> getAllSeatsForShowTime(int showTimeID);
